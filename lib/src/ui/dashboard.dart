@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:warung_ihwani/src/ui/product/productListPage.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -74,13 +75,20 @@ class _DashboardState extends State<Dashboard> {
                 mainAxisSpacing: 20,
                 crossAxisCount: 2,
                 children: <Widget>[
-                  MenuItemDashboard(
-                      title: 'Produk',
-                      subtitle: '34 Total',
-                      icon: CupertinoIcons.rocket_fill,
-                      iconColor: Color.fromRGBO(106, 88, 255, 1),
-                      page: Container(),
-                      backgroundIconColor: Color.fromRGBO(228, 230, 255, 1)),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const ProductListPage(),
+                      ));
+                    },
+                    child: MenuItemDashboard(
+                        title: 'Produk',
+                        subtitle: '34 Total',
+                        icon: CupertinoIcons.rocket_fill,
+                        iconColor: Color.fromRGBO(106, 88, 255, 1),
+                        page: Container(),
+                        backgroundIconColor: Color.fromRGBO(228, 230, 255, 1)),
+                  ),
                   MenuItemDashboard(
                       title: 'Mesin Cari',
                       subtitle: 'Cari produk (Google)',
